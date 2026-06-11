@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard RPG</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #0f0f0f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.card {
+  width: 500px;
+  background: #1e1b18;
+  border: 3px solid gold;
+  padding: 20px;
+  box-shadow: 0 0 20px black;
+}
+
+h1 {
+  text-align: center;
+  color: gold;
+}
+
+.info {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.tag {
+  color: gold;
+}
+
+.bar {
+  width: 100%;
+  height: 15px;
+  background: #333;
+  margin-top: 5px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: gold;
+  width: 0%;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: gold;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1 id="nome">Carregando...</h1>
+
+  <div class="info"><span class="tag">ID:</span> <span id="id"></span></div>
+  <div class="info"><span class="tag">Ilha Nascimento:</span> <span id="ilhaN"></span></div>
+  <div class="info"><span class="tag">Ilha Atual:</span> <span id="ilhaA"></span></div>
+  <div class="info"><span class="tag">Facção:</span> <span id="faccao"></span></div>
+  <div class="info"><span class="tag">Tripulação:</span> <span id="trip"></span></div>
+  <div class="info"><span class="tag">Fruta:</span> <span id="fruta"></span></div>
+
+  <div class="info"><span class="tag">Level:</span> <span id="level"></span></div>
+
+  <div class="info"><span class="tag">XP:</span></div>
+  <div class="bar">
+    <div class="bar-fill" id="xpbar"></div>
+  </div>
+
+  <div class="info"><span class="tag">Berries:</span> ฿ <span id="beli"></span></div>
+  <div class="info"><span class="tag">Barco:</span> <span id="barco"></span></div>
+  <div class="info"><span class="tag">Ranking:</span> #<span id="rank"></span></div>
+
+  <button onclick="logout()">Sair</button>
+
+</div>
+
+<script>
+const player = JSON.parse(localStorage.getItem("playerAtivo"));
+
+if (!player) {
+  alert("Você não está logado!");
+  window.location.href = "index.html";
+}
+
+document.getElementById("nome").innerText = player.personagem;
+document.getElementById("id").innerText = player.id;
+document.getElementById("ilhaN").innerText = player.ilhaNascimento;
+document.getElementById("ilhaA").innerText = player.ilhaAtual;
+document.getElementById("faccao").innerText = player.faccao;
+document.getElementById("trip").innerText = player.tripulacao;
+document.getElementById("fruta").innerText = player.fruta;
+document.getElementById("level").innerText = player.level;
+document.getElementById("beli").innerText = player.beli;
+document.getElementById("barco").innerText = player.barco;
+document.getElementById("rank").innerText = player.ranking;
+
+// XP bar
+let xpPercent = (player.xp / player.xpMax) * 100;
+document.getElementById("xpbar").style.width = xpPercent + "%";
+
+function logout() {
+  localStorage.removeItem("playerAtivo");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<style>
+body{
+background:#0f0f0f;
+color:white;
+font-family:Georgia;
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
+.card{
+width:450px;
+background:#1e1b18;
+border:2px solid gold;
+padding:20px;
+}
+
+h1{color:gold;text-align:center}
+
+.bar{background:#333;height:15px}
+.fill{background:gold;height:15px;width:0%}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1 id="nome"></h1>
+
+<p>ID: <span id="id"></span></p>
+<p>Ilha: <span id="ilha"></span></p>
+<p>Facção: <span id="faccao"></span></p>
+<p>Tripulação: <span id="trip"></span></p>
+<p>Fruta: <span id="fruta"></span></p>
+<p>Level: <span id="level"></span></p>
+
+<p>XP</p>
+<div class="bar"><div class="fill" id="xp"></div></div>
+
+<p>Beli: <span id="beli"></span></p>
+<p>Barco: <span id="barco"></span></p>
+<p>Ranking: #<span id="rank"></span></p>
+
+</div>
+
+<script>
+let p = JSON.parse(localStorage.getItem("playerAtivo"));
+
+if(!p){
+alert("Não logado!");
+window.location.href="login.html";
+}
+
+document.getElementById("nome").innerText = p.personagem;
+document.getElementById("id").innerText = p.id;
+document.getElementById("ilha").innerText = p.ilhaAtual;
+document.getElementById("faccao").innerText = p.faccao;
+document.getElementById("trip").innerText = p.tripulacao;
+document.getElementById("fruta").innerText = p.fruta;
+document.getElementById("level").innerText = p.level;
+document.getElementById("beli").innerText = p.beli;
+document.getElementById("barco").innerText = p.barco;
+document.getElementById("rank").innerText = p.ranking;
+
+let xp = (p.xp / p.xpMax) * 100;
+document.getElementById("xp").style.width = xp + "%";
+</script>
+
+</body>
+</html>
