@@ -5,37 +5,37 @@
 <title>Login RPG</title>
 
 <style>
-body {
-  margin:0;
-  font-family:Georgia;
-  background:#111;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+body{
+margin:0;
+font-family:Georgia;
+background:#111;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.box {
-  background:#2b1d1d;
-  padding:20px;
-  width:350px;
-  border:2px solid gold;
-  text-align:center;
+.box{
+background:#2b1d1d;
+padding:20px;
+width:350px;
+border:2px solid gold;
+text-align:center;
 }
 
-input {
-  width:90%;
-  padding:10px;
-  margin:8px 0;
+input{
+width:90%;
+padding:10px;
+margin:8px 0;
 }
 
-button {
-  width:95%;
-  padding:10px;
-  background:gold;
-  border:none;
-  cursor:pointer;
+button{
+width:95%;
+padding:10px;
+background:gold;
+border:none;
+cursor:pointer;
 }
 </style>
 </head>
@@ -43,31 +43,32 @@ button {
 <body>
 
 <div class="box">
-  <h2>🏴‍☠️ LOGIN</h2>
+<h2>🏴‍☠️ LOGIN</h2>
 
-  <input id="id" placeholder="ID (ex: FI6823)">
-  <input id="senha" placeholder="Senha">
+<input id="id" placeholder="ID (ex: FI6823)">
+<input id="senha" placeholder="Senha">
 
-  <button onclick="login()">Entrar</button>
+<button onclick="login()">Entrar</button>
 </div>
 
 <script>
 function login(){
-  let id = document.getElementById("id").value;
-  let senha = document.getElementById("senha").value;
 
-  let contas = JSON.parse(localStorage.getItem("contas")) || [];
+let id = document.getElementById("id").value;
+let senha = document.getElementById("senha").value;
 
-  let user = contas.find(p => p.id === id && p.senha === senha);
+let contas = JSON.parse(localStorage.getItem("contas")) || [];
 
-  if(!user){
-    alert("Conta não encontrada!");
-    return;
-  }
+let user = contas.find(p => p.id === id && p.senha === senha);
 
-  localStorage.setItem("playerAtivo", JSON.stringify(user));
+if(!user){
+alert("Conta não encontrada!");
+return;
+}
 
-  window.location.href = "dashboard.html";
+localStorage.setItem("playerAtivo", JSON.stringify(user));
+
+window.location.href = "dashboard.html";
 }
 </script>
 

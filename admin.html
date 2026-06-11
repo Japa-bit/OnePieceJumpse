@@ -2,140 +2,59 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Painel ADM - One Piece RPG</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: #1b1b1b;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.panel {
-  width: 450px;
-  background: #2b1d1d;
-  padding: 20px;
-  border: 3px solid gold;
-  box-shadow: 0 0 20px black;
-}
-
-h1 {
-  text-align: center;
-  color: gold;
-  margin-bottom: 15px;
-}
-
-input {
-  width: 95%;
-  padding: 10px;
-  margin: 6px 0;
-  border: none;
-  border-radius: 5px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: gold;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: orange;
-}
-
-small {
-  color: #aaa;
-}
-</style>
-</head>
-
-<body>
-
-<div class="panel">
-  <h1>⚓ PAINEL ADM</h1>
-
-  <input id="personagem" placeholder="Personagem (ex: Luffy)">
-  <input id="senha" placeholder="Senha do jogador">
-  <input id="ilha" placeholder="Código da ilha (ex: FI)">
-  <input id="numero" placeholder="Número ID (ex: 6823)">
-
-  <input id="ilhaNascimento" placeholder="Ilha de nascimento">
-  <input id="ilhaAtual" placeholder="Ilha atual">
-  <input id="faccao" placeholder="Facção (Piratas, Marinha...)">
-  <input id="tripulacao" placeholder="Tripulação">
-
-  <input id="beli" placeholder="Berries (ex: 25000)">
-  <input id="fruta" placeholder="Fruta (ou Nenhuma)">
-
-  <button onclick="criarConta()">CRIAR CONTA</button>
-
-  <small>⚠ Sistema administrativo da Marinha</small>
-</div>
-
-<script>
-function criarConta() {
-
-  const conta = {
-    id: document.getElementById("ilha").value + document.getElementById("numero").value,
-
-    senha: document.getElementById("senha").value,
-
-    personagem: document.getElementById("personagem").value,
-    ilhaNascimento: document.getElementById("ilhaNascimento").value,
-    ilhaAtual: document.getElementById("ilhaAtual").value,
-    faccao: document.getElementById("faccao").value,
-    tripulacao: document.getElementById("tripulacao").value,
-
-    level: 1,
-    xp: 0,
-    xpMax: 100,
-    beli: Number(document.getElementById("beli").value),
-    salario: 0,
-    barco: "Nenhum",
-    fruta: document.getElementById("fruta").value,
-    ranking: 999
-  };
-
-  let contas = JSON.parse(localStorage.getItem("contas")) || [];
-  contas.push(conta);
-
-  localStorage.setItem("contas", JSON.stringify(contas));
-
-  alert("Conta criada com sucesso! ID: " + conta.id);
-
-  console.log(conta);
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
 <title>ADM RPG</title>
 
 <style>
-body{background:#111;color:white;font-family:Georgia;display:flex;justify-content:center}
-.box{width:400px;background:#2b1d1d;padding:20px;margin-top:40px;border:2px solid gold}
-input{width:95%;padding:8px;margin:5px 0}
-button{width:100%;padding:10px;background:gold;border:none;cursor:pointer}
+body{
+margin:0;
+font-family:Georgia;
+background:#111;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.panel{
+width:420px;
+background:#2b1d1d;
+padding:20px;
+border:2px solid gold;
+}
+
+input{
+width:95%;
+padding:8px;
+margin:5px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:gold;
+border:none;
+cursor:pointer;
+}
+
+#painel{display:none;}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-<h2>⚓ Criar Conta</h2>
+<div class="panel" id="loginAdm">
+<h2>⚓ LOGIN ADM</h2>
+
+<input id="admUser" placeholder="Usuário">
+<input id="admPass" type="password" placeholder="Senha">
+
+<button onclick="entrarAdm()">Entrar</button>
+</div>
+
+<div class="panel" id="painel">
+
+<h2>⚓ CRIAR CONTA</h2>
 
 <input id="id" placeholder="ID (FI6823)">
 <input id="senha" placeholder="Senha">
@@ -147,27 +66,43 @@ button{width:100%;padding:10px;background:gold;border:none;cursor:pointer}
 <input id="beli" placeholder="Beli">
 <input id="fruta" placeholder="Fruta">
 
-<button onclick="criar()">Criar</button>
+<button onclick="criar()">Criar Conta</button>
+
 </div>
 
 <script>
+
+function entrarAdm(){
+
+let u = document.getElementById("admUser").value;
+let p = document.getElementById("admPass").value;
+
+if(u === "admin" && p === "Luffy2026"){
+document.getElementById("loginAdm").style.display="none";
+document.getElementById("painel").style.display="block";
+}else{
+alert("Acesso negado!");
+}
+
+}
+
 function criar(){
 
 let conta = {
- id: document.getElementById("id").value,
- senha: document.getElementById("senha").value,
- personagem: document.getElementById("nome").value,
- ilhaNascimento: document.getElementById("ilhaN").value,
- ilhaAtual: document.getElementById("ilhaA").value,
- faccao: document.getElementById("faccao").value,
- tripulacao: document.getElementById("trip").value,
- level: 1,
- xp: 0,
- xpMax: 100,
- beli: Number(document.getElementById("beli").value),
- fruta: document.getElementById("fruta").value,
- barco: "Nenhum",
- ranking: 999
+id: document.getElementById("id").value,
+senha: document.getElementById("senha").value,
+personagem: document.getElementById("nome").value,
+ilhaNascimento: document.getElementById("ilhaN").value,
+ilhaAtual: document.getElementById("ilhaA").value,
+faccao: document.getElementById("faccao").value,
+tripulacao: document.getElementById("trip").value,
+level: 1,
+xp: 0,
+xpMax: 100,
+beli: Number(document.getElementById("beli").value),
+fruta: document.getElementById("fruta").value,
+barco: "Nenhum",
+ranking: 999
 };
 
 let contas = JSON.parse(localStorage.getItem("contas")) || [];
@@ -175,8 +110,9 @@ contas.push(conta);
 
 localStorage.setItem("contas", JSON.stringify(contas));
 
-alert("Conta criada!");
+alert("Conta criada com sucesso!");
 }
+
 </script>
 
 </body>
