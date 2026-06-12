@@ -1,0 +1,46 @@
+body{
+margin:0;
+font-family:Georgia;
+background:url("https://i.imgur.com/3ZQ3ZQm.jpg");
+background-size:cover;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+width:380px;
+background:#f5e6c8;
+border:8px solid #3b2f2f;
+padding:25px;
+text-align:center;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:8px 0;
+border:2px solid #3b2f2f;
+background:#fff7e6;
+}
+
+button{
+width:95%;
+padding:12px;
+background:#3b2f2f;
+color:white;
+border:none;
+cursor:pointer;
+}body{
+  margin:0;
+  font-family:Georgia;
+  background: url("../assets/fundo/bemvindo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}

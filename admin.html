@@ -2,48 +2,13 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>ADM RPG</title>
+<title>ADM</title>
 
-<style>
-body{
-margin:0;
-font-family:Georgia;
-background:#111;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.panel{
-width:420px;
-background:#2b1d1d;
-padding:20px;
-border:2px solid gold;
-}
-
-input{
-width:95%;
-padding:8px;
-margin:5px 0;
-}
-
-button{
-width:100%;
-padding:10px;
-background:gold;
-border:none;
-cursor:pointer;
-}
-
-#painel{display:none;}
-</style>
+<link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
 
-<!-- LOGIN ADM -->
 <div id="loginAdm" class="panel">
 <h2>⚓ LOGIN ADM</h2>
 
@@ -53,7 +18,6 @@ cursor:pointer;
 <button onclick="entrarAdm()">Entrar</button>
 </div>
 
-<!-- PAINEL -->
 <div id="painel" class="panel">
 
 <h2>⚓ CRIAR CONTA</h2>
@@ -73,7 +37,6 @@ cursor:pointer;
 </div>
 
 <script>
-
 function entrarAdm(){
 
 let u = document.getElementById("admUser").value;
@@ -85,7 +48,6 @@ document.getElementById("painel").style.display="block";
 }else{
 alert("Acesso negado!");
 }
-
 }
 
 function criar(){
@@ -112,9 +74,8 @@ contas.push(conta);
 
 localStorage.setItem("contas", JSON.stringify(contas));
 
-alert("Conta criada com sucesso!");
+alert("Conta criada!");
 }
-
 </script>
 
 </body>

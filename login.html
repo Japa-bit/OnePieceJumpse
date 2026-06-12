@@ -2,42 +2,9 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Login RPG</title>
+<title>Login</title>
 
-<style>
-body{
-margin:0;
-font-family:Georgia;
-background:#111;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.box{
-background:#2b1d1d;
-padding:20px;
-width:350px;
-border:2px solid gold;
-text-align:center;
-}
-
-input{
-width:90%;
-padding:10px;
-margin:8px 0;
-}
-
-button{
-width:95%;
-padding:10px;
-background:gold;
-border:none;
-cursor:pointer;
-}
-</style>
+<link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -46,7 +13,7 @@ cursor:pointer;
 <h2>🏴‍☠️ LOGIN</h2>
 
 <input id="id" placeholder="ID (ex: FI6823)">
-<input id="senha" placeholder="Senha">
+<input id="senha" type="password" placeholder="Senha">
 
 <button onclick="login()">Entrar</button>
 </div>
@@ -74,3 +41,4 @@ window.location.href = "dashboard.html";
 
 </body>
 </html>
+<style>
