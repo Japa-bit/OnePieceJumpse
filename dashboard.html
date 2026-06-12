@@ -22,7 +22,10 @@ border:2px solid gold;
 padding:20px;
 }
 
-h1{color:gold;text-align:center}
+h1{
+color:gold;
+text-align:center;
+}
 
 .bar{
 width:100%;
@@ -67,7 +70,7 @@ width:0%;
 let p = JSON.parse(localStorage.getItem("playerAtivo"));
 
 if(!p){
-alert("Não logado!");
+alert("Você não está logado!");
 window.location.href="login.html";
 }
 

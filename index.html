@@ -1,138 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Piece Jumpse</title>
-
-<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-<div class="container">
-
-    <img src="assets/fundos/bemvindo.png"
-         class="banner">
-
-    <div class="menu">
-
-        <a href="login.html">⚓ Entrar</a>
-
-        <a href="ranking.html">🏆 Ranking</a>
-
-        <a href="eventos.html">🎉 Eventos</a>
-
-    </div>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Wanted Login</title>
+<title>One Piece RPG</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: url('https://i.imgur.com/3ZQ3ZQm.jpg');
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+body{
+margin:0;
+font-family:Georgia;
+background:#111;
+color:white;
+text-align:center;
+padding-top:120px;
 }
 
-.cartaz {
-  width: 380px;
-  background: #f5e6c8;
-  border: 8px solid #3b2f2f;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(0,0,0,0.7);
-}
-
-.titulo {
-  font-size: 30px;
-  letter-spacing: 5px;
-  font-weight: bold;
-}
-
-.sub {
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 90%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 2px solid #3b2f2f;
-  background: #fff7e6;
-}
-
-button {
-  width: 95%;
-  padding: 12px;
-  background: #3b2f2f;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background: #5a3d2b;
-}
-
-.info {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #5a3d2b;
+a{
+display:block;
+margin:10px;
+color:gold;
+font-size:20px;
+text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="cartaz">
-  <div class="titulo">WANTED</div>
-  <div class="sub">WORLD GOVERNMENT ACCESS</div>
+<h1>🏴‍☠️ ONE PIECE RPG</h1>
 
-  <input type="text" id="id" placeholder="ID (ex: FI6823)">
-  <input type="password" id="senha" placeholder="Senha">
-
-  <button onclick="login()">ENTRAR NO MAR</button>
-
-  <div class="info">
-    🔐 Sistema controlado pela Marinha
-  </div>
-</div>
-
-<script>
-function login() {
-  const id = document.getElementById("id").value;
-  const senha = document.getElementById("senha").value;
-
-  const contas = JSON.parse(localStorage.getItem("contas")) || [];
-
-  const user = contas.find(p => p.id === id && p.senha === senha);
-
-  if (!user) {
-    alert("Conta não encontrada ou senha incorreta!");
-    return;
-  }
-
-  localStorage.setItem("playerAtivo", JSON.stringify(user));
-
-  alert("Bem-vindo, " + user.personagem + "!");
-  window.location.href = "dashboard.html";
-}
-</script>
+<a href="login.html">⚓ Entrar no Jogo</a>
+<a href="admin.html">👑 Painel ADM</a>
 
 </body>
 </html>
